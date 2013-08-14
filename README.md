@@ -18,18 +18,20 @@ Steps to try:
 
 5. open 2 diferents browsers like FireFox and Chrome, set the url http://localhost:8080/GrailsVertxClock
 
-6. run server in a terminal:
+6. cd web-app/verticles
+
+7. run server in a terminal:
 
     run NewsVerticle.groovy -cluster -cluster-port 5463 -cluster-host 127.0.0.1
 
-7. run client in a terminal:
+8. run client in a terminal:
 
     telnet localhost 1234
 
-8. write news in a client
+9. write news in a client
 
-9. take a look the browsers.
+10. take a look the browsers.
 
-10 modifying enjoy it.
+11. modifying enjoy it.
 
 
