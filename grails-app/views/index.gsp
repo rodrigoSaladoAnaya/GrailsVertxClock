@@ -6,6 +6,8 @@
     <r:require module="application"/>
 </head>
 <body>
-    <div id="output-clock"></div>
+    <div id="clock"></div>
+    <br>
+    <div id="news"></div>
 </body>
 </html>

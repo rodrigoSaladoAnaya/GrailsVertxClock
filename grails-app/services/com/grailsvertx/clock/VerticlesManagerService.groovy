@@ -15,7 +15,6 @@ class VerticlesManagerService {
     def javaScriptBridgeService
     def clockVerticleService
 
-
     private void createVertxInstance() {
         vertx = VertxFactory.newVertx(grailsApplication.config.vertx.host)
         evetBus = vertx.eventBus()
