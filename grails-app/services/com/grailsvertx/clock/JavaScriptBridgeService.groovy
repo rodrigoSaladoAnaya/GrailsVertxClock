@@ -11,25 +11,19 @@ import org.vertx.java.core.sockjs.SockJSServer
 
 class JavaScriptBridgeService {
 
-    @TypeChecked
     def start(Vertx vertx) {
         HttpServer httpServer = vertx.createHttpServer()
 
-        def requestHandler = new Handler<HttpServerRequest>() {
-            @Override
-            void handle(HttpServerRequest request) {
-                //something else ...
-            }
-        }
+        def requestHandler = { } as Handler<HttpServerRequest>
 
         httpServer.requestHandler(requestHandler)
 
-        JsonArray permitted = new JsonArray();
+        JsonArray permitted = new JsonArray()
         permitted.add(new JsonObject())
 
         SockJSServer sockJSServer = vertx.createSockJSServer(httpServer)
         sockJSServer.bridge(new JsonObject().putString('prefix', '/eventbus'), permitted, permitted)
 
-        httpServer.listen(7564);
+        httpServer.listen(7564)
     }
 }

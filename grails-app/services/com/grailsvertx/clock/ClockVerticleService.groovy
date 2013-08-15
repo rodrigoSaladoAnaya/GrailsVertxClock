@@ -9,7 +9,9 @@ class ClockVerticleService {
 
   def sendMessage(Vertx vertx, EventBus eventBus) {
     def address = 'clock-address'
-    def handler = { Long e -> eventBus.publish(address, new Date().format("yyyy-MM-dd hh:ss")) } as Handler<Long>
+    def handler = { Long e -> 
+      eventBus.publish(address, new Date().format("yyyy-MM-dd hh:ss")) 
+    } as Handler<Long>
     vertx.setPeriodic(1000, handler)
   }
 }
