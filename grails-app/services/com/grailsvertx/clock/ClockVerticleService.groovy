@@ -7,14 +7,11 @@ import org.vertx.java.core.eventbus.EventBus
 
 class ClockVerticleService {
 
-    @TypeChecked
-    def sendMessage(Vertx vertx, EventBus eventBus) {
-        def address = 'clock-address'
-        vertx.setPeriodic(1000, new Handler<Long>() {
-            @Override
-            void handle(Long e) {
-                eventBus.publish(address, new Date().format("yyyy-MM-dd hh:ss"))
-            }
-        })
-    }
+  def sendMessage(Vertx vertx, EventBus eventBus) {
+    def address = 'clock-address'
+    def handler = { Long e -> 
+      eventBus.publish(address, new Date().format("yyyy-MM-dd hh:ss")) 
+    } as Handler<Long>
+    vertx.setPeriodic(1000, handler)
+  }
 }
